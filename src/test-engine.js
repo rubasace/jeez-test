@@ -70,8 +70,13 @@ function getRequest(test, name, context) {
         return test.request(context);
     }
     const filename = typeof request === 'string' ? request : name;
-    const file = fs.readFileSync(`./tests/${filename}.json`);
-    return JSON.parse(file)
+    const filePath = `./tests/${filename}.json`;
+    if(fs.existsSync(filePath)){
+        const file = fs.readFileSync(filePath);
+        return JSON.parse(file)
+    }
+    return undefined;
+
 }
 
 function applyTest(test, filename, context) {
