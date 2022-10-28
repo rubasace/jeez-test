@@ -6,6 +6,7 @@ module.exports = {
     name: 'get todos',
     method: 'GET',
     endpoint: 'https://jsonplaceholder.typicode.com/users/1',
+    request: 'getTodos',
     assertions: {
         //Assert literal comparissons
         name: 'Leanne Graham',
